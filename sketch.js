@@ -3,7 +3,7 @@
 
 // COMO ENSINAR A MONTAR VÁRIAVEIS
 
-// Utilizando o comando let ou var é possivel estabelecer um nome a determinada variável criada, durante a construção a muitos exemplos de variáveis sendo criadas.
+// Utilizando o comando let ou var é possivel estabelecer um nome a determinada variável criada, durante a construção ha muitos exemplos de variáveis sendo criadas.
 
 // Variáveis da bolinha
 let xBolinha = 300;
