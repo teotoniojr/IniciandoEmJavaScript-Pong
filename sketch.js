@@ -48,11 +48,13 @@ let trilha;
 
 // COMO ENSINAR A MONTAR O CANVA
 
-// Quando abrimos um documento no p5, as funções de se criar o canva já estão pré-disponiveis
+// Quando abrimos um documento no p5, as funções de criar o canva já estão pré-disponiveis
 // Em createCanvas(x,y) temos a posição x e y que será preenchida conforme a cor estabelecida
 // a cor de fundo é dado pela função de desenho de background]
 // as cores variam de preto a branco, sendo preto 0 e branco 255
+// será abordado mais formas de escolher cores no futuro.
 
+// Parte da música, explicada no final. 
 function preload() {
   trilha = loadSound("trilha.mp3");
   ponto = loadSound("ponto.mp3");
@@ -70,8 +72,9 @@ function draw() {
   aparecerBolinha();
   // COMO ENSINAR CRIAR A BOLINHA
 
-  // Para criar um circulo, vá na aba de ajuda e encontre a função que possibilite
-  // circle (x,y,d)
+  // Para criar um circulo, vá na aba de ajuda e referências, no site que abrir encontre a função que possibilite a criação de um circulo.
+  // Em inglês shape, significa formas. Então clicando nessa palavra, somos direcionado para a parte do site que explica funções que criam formas.
+  // circle (x,y,d) é a função que vamos utilizar. 
   // Entenda quais seus atributos e crie variveis para eles.
   // Coloque a bolinha no centro do canva e de um tamanho adequado.
   // Crie as váriaveis para as coordenadas x, y e diametro
@@ -81,7 +84,7 @@ function draw() {
 
   // Adicione 1 a posição da bolinha
   // xBolinha = xBolinha + 1
-  // Entenda que o número 1 é a velocidade da bolinha e crie uma variavel
+  // Entenda que o número 1 é a velocidade da bolinha e crie uma variável
   // xBolinha = xBolinha + velocidadexBolinha
   // Para deixar mais elegante, podemos usar a operação +=
   // Faça o mesmo processo para o eixo y
