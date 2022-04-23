@@ -117,12 +117,47 @@ PENSAMENTO COMPUTACIONAL
 
 ### COMO FAZER O MOVIMENTO DA RAQUETE DO OPONENTE
 
-  // Primeiramente temos que criar uma variável para a velocidade da raquete do oponente, mas não atribuimos nenhum valor, para que ela se movimente segundo o y da bolinha "let velocidadeyOponente"
-  // Agora na função, criamos a condição para que a raquete se movimente com a bolinha, fazendo uma operação entre o a posição y da bolinha, a posição y da raquete, a metade do comprimento da raquete e uma margem de erro para a bolinha não acertar sempre;
-  // Ficamos com
-  //
-  //velocidadeyOponente = yBolinha - yRaqueteOponente -   comprimentoRaquete / 2 - 30;
-  //
-  // Agora, adicionamos a posição y da raquete, a velocidade que ela deve ter, como calculamos ali em cima.
-  //
-  // yRaqueteOponente += velocidadeyOponente
+ * Primeiramente temos que criar uma variável para a velocidade da raquete do oponente, mas não atribuimos nenhum valor, para que ela se movimente segundo o y da bolinha "let velocidadeyOponente"
+ * Agora na função, criamos a condição para que a raquete se movimente com a bolinha, fazendo uma operação entre o a posição y da bolinha, a posição y da raquete, a metade do comprimento da raquete e uma margem de erro para a bolinha não acertar sempre;
+ * Ficamos com:
+ * velocidadeyOponente = yBolinha - yRaqueteOponente -   comprimentoRaquete / 2 - 30;
+ * Agora, adicionamos a posição y da raquete, a velocidade que ela deve ter, como calculamos ali em cima.
+ * yRaqueteOponente += velocidadeyOponente
+
+### COMO FAZER AS DUAS RAQUETES COLIDIREM COM A BOLINHA.
+
+ * Assim como a nossa raquete, também queremos que a raquete do oponente reconheça a bolinha. Para isso vamos reorganizar a função que pegamos na biblioteca.
+ * Se duplicarmos a função de colisão "colisaoMinhaRaqueteBiblioteca()" e reescrevermos para a raquete do oponente, teriamos o resultado desejado. Porém, queremos simplificar o nosso código. Para isso podemos usar do mesmo recurso que utilizamos para mostrar as raquetes. Modificando a função para uma geral como "verificarColisaoRaquete"
+ * Colocamos dois termos genéricos, x e y, como padrões da função.
+ * function verificarColisaoRaquete(x, y) { colidiu = collideRectCircle(x, y, comprimentoRaquete, alturaRaquete, xBolinha, yBolinha, diametroBolinha) if (colidiu) { velocidadexBolinha *= -1 }
+ * Substituimos os valores das coordenadas da função por esse padrão e chamamos duas vezes a função de colisão, para cada uma das variáveis.
+ * function verificarColisaoRaquete(xRaquete, yRaquete)
+ * function verificarColisaoRaquete(xRaqueteOponente, yRaqueteOponente)
+
+### COMO FAZER O PLACAR
+  
+ * Vamos começar fazendo as variáveis onde iremos guardar os pontos e igualar o começo delas como zero "let meusPontos = 0" e "let oponentePontos = 0"
+ * Criamos a função para mostrar o placar, e dentro dessa função usamos o comando text(variavel, x, y) para indicar o que estará escrito e sua posição
+ * Como nosso fundo é preto, temos que usar o fill, para preencher o texto com a coloração branca. Esse comando vai em cima dos textos.
+ 
+ ### COMO FAZER O PLACAR SOMAR OS PONTOS
+  
+ * Para fazer com que os pontos contem, precimos fazer com que, cada vez que a bolinha se aproxime das bordas 0 e 500, acresente o ponto no placar. Bem similar ao que foi feito no scratch
+ * Para isso usaremos o comando if
+ * function somarPontos(){if (xBolinha < 9) {oponentePontos += + 1}}
+ * Testei com o 10 e soma os pontos de 3 em 3.. O mais sensível e sem erro foi o 9.. Mas também consegui fazer com o 8 e o 7. É importante levar em conta o raio da bolinha, o tamanho do comprimento da raquete e também a distância que ela está da borda.
+ * Com isso repetimos o mesmo processo para os pontos do oponente
+
+### COMO ARRUMAR O PLACAR IGUAL DO SCRATCH
+
+  * Para isso iremos utilizar alguns comandos como stroke() (contorno), textAlign() (alinhamento), textSize() (tamanho) e o rect() que são os quadrados.
+
+### COMO COLOCAR SOM
+
+  * Para colocarmos os sons, precisamos dos arquivos deles, assim que ja tivermos os arquivos mp3, podemos carregalos no nosso código, como fizemos quando pegamos a solução da biblioteca. Carregando os arquivos deles para dentro do p5
+  * Após isso criamos as variaveis para guardar os sons com o comando let
+  * Usamos a função preload para carregar os sons no nosso jogo dando a direção deles, colocando o nome do arquiv
+  * function preload() { trilha = loadSound("trilha.mp3"); ponto = loadSound("ponto.mp3"); raquetada = loadSound("raquetada.mp3")}
+  * Agora incluimos os sons nas funções em que há colisão com a raquete, na função setup e na hora da pontuação
+  * Para fazer o som ficar em loop, usamos o comando "som".loop(), onde entre as aspas colocamos o som que queremos ver em loop.
+  * Para tocar somente uma vez, utilizamos o comando "som".play()
